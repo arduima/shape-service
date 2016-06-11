@@ -67,24 +67,10 @@ public class Rectangle implements Shape {
             return Boolean.FALSE;
         }
 
-        // Any of the 4 corners must be inside the this.shape ie.
-        // All of the 4 corners can't be outside of the this.shape
-        Boolean intersects = Boolean.FALSE;
-        if(x >= this.x && x < this.x+this.width && y+height>this.y && y+height <= this.y+height) {
-            // Top left corner inside this.shape, must be inside not on the line
-            intersects = Boolean.TRUE;
-        } else if(x+width > this.x && x+width <= this.x+width && y+height>this.y && y+height <= this.y+height) {
-            // Top right corner inside this.shape
-            intersects = Boolean.TRUE;
-        } else if(x >= this.x && x < this.x+this.width && y > this.y && y < this.y+height) {
-            // Bottom left corner inside this.shape
-            intersects = Boolean.TRUE;
-        } else if(x+width > this.x && x+width <= this.x+width && y > this.y && y < this.y+height) {
-            // Bottom right corner inside this.shape
-            intersects = Boolean.TRUE;
-        }
-
-        return intersects;
+        // Any of the 4 sides must be inside the this.shape ie.
+        // All of the 4 sides can't be outside of the this.shape
+        // R is L of this.shape.L  || this.shape.R is L of R || T is B of this.B   || this.shape.T is B of T
+        return !(x+width <= this.x || this.x+this.width <= x || y+height <= this.y || this.y+this.height <= y);
     }
 
     @Override
@@ -112,6 +98,7 @@ public class Rectangle implements Shape {
         if(!isValid(shape)) {
             return null;
         }
+
         return adjacent(shape.location().x, shape.location().y, shape.width(), shape.height());
     }
 
@@ -120,6 +107,7 @@ public class Rectangle implements Shape {
         if(!isValid(x, y, width, height)) {
             return null;
         }
+
         return null;
     }
 

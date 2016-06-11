@@ -138,9 +138,19 @@ public class RectangleTest {
         assertNotNull(intersects);
         assertTrue(intersects);
 
-        // Intersects, top side
+        // Intersects, top side, all corners outside
         rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
         rect2 = new Rectangle(-5.0, -10.0, 20.0, 15.0);
+        intersects = rect1.intersects(rect2);
+        assertNotNull(intersects);
+        assertTrue(intersects);
+        intersects = rect2.intersects(rect1);
+        assertNotNull(intersects);
+        assertTrue(intersects);
+
+        // Intersects, top side
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(-5.0, -5.0, 20.0, 15.0);
         intersects = rect1.intersects(rect2);
         assertNotNull(intersects);
         assertTrue(intersects);
@@ -221,11 +231,17 @@ public class RectangleTest {
         intersects = rect1.intersects(rect2);
         assertNotNull(intersects);
         assertTrue(intersects);
+        intersects = rect2.intersects(rect1);
+        assertNotNull(intersects);
+        assertTrue(intersects);
 
         // Intersects, right side
         rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
         rect2 = new Rectangle(8.0, -2.0, 10.0, 19.0);
         intersects = rect1.intersects(rect2);
+        assertNotNull(intersects);
+        assertTrue(intersects);
+        intersects = rect2.intersects(rect1);
         assertNotNull(intersects);
         assertTrue(intersects);
 
@@ -235,11 +251,17 @@ public class RectangleTest {
         intersects = rect1.intersects(rect2);
         assertNotNull(intersects);
         assertTrue(intersects);
+        intersects = rect2.intersects(rect1);
+        assertNotNull(intersects);
+        assertTrue(intersects);
 
         // Intersects, right side
         rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
         rect2 = new Rectangle(8.0, 0.0, 10.0, 15.0);
         intersects = rect1.intersects(rect2);
+        assertNotNull(intersects);
+        assertTrue(intersects);
+        intersects = rect2.intersects(rect1);
         assertNotNull(intersects);
         assertTrue(intersects);
     }
@@ -286,7 +308,7 @@ public class RectangleTest {
         assertNotNull(intersects);
         assertFalse(intersects);
 
-        // Touching right, not intersects
+        // Touching left, not intersects
         rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
         rect2 = new Rectangle(-10.0, 0.0, 10.0, 2.0);
         intersects = rect1.intersects(rect2);
@@ -311,6 +333,10 @@ public class RectangleTest {
         Boolean contains = rect1.contains(rect2);
         assertNotNull(contains);
         assertTrue(contains);
+        // Must check containment in both directions
+        contains = rect2.contains(rect1);
+        assertNotNull(contains);
+        assertFalse(contains);
 
         // Enclosed, one corner touching
         rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
