@@ -57,7 +57,34 @@ public class Rectangle implements Shape {
         if(!isValid(x, y, width, height)) {
             return null;
         }
-        return null;
+        // Can't be fully enclosed
+        // Check if either of the shapes are enclosing the other
+        Boolean enclosed = this.contains(x, y, width, height);
+        Boolean enclosedReverse = new Rectangle(x, y, width, height).contains(this);
+        if(enclosed == null || enclosedReverse == null) {
+            return null;
+        } else if(enclosed || enclosedReverse) {
+            return Boolean.FALSE;
+        }
+
+        // Any of the 4 corners must be inside the this.shape ie.
+        // All of the 4 corners can't be outside of the this.shape
+        Boolean intersects = Boolean.FALSE;
+        if(x >= this.x && x < this.x+this.width && y+height>this.y && y+height <= this.y+height) {
+            // Top left corner inside this.shape, must be inside not on the line
+            intersects = Boolean.TRUE;
+        } else if(x+width > this.x && x+width <= this.x+width && y+height>this.y && y+height <= this.y+height) {
+            // Top right corner inside this.shape
+            intersects = Boolean.TRUE;
+        } else if(x >= this.x && x < this.x+this.width && y > this.y && y < this.y+height) {
+            // Bottom left corner inside this.shape
+            intersects = Boolean.TRUE;
+        } else if(x+width > this.x && x+width <= this.x+width && y > this.y && y < this.y+height) {
+            // Bottom right corner inside this.shape
+            intersects = Boolean.TRUE;
+        }
+
+        return intersects;
     }
 
     @Override
@@ -65,6 +92,7 @@ public class Rectangle implements Shape {
         if(!isValid(shape)) {
             return null;
         }
+
         return contains(shape.location().x, shape.location().y, shape.width(), shape.height());
     }
 
@@ -73,13 +101,10 @@ public class Rectangle implements Shape {
         if(!isValid(x, y, width, height)) {
             return null;
         }
-        boolean contains = true;
+
         // Check for what it can't be
         // All 4 corners must be inside the this.shape
-        if(x < this.x || x+width > this.x+this.width || y < this.y || y+height > this.y+this.height) {
-            contains =  false;
-        }
-        return contains;
+        return !(x < this.x || x+width > this.x+this.width || y < this.y || y+height > this.y+this.height);
     }
 
     @Override
