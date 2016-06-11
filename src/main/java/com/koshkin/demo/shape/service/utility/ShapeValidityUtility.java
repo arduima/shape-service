@@ -13,7 +13,7 @@ import static com.koshkin.demo.shape.service.exception.ExceptionMessages.INVALID
 
 public class ShapeValidityUtility {
 
-    static Logger log = Logger.getLogger(ShapeValidityUtility.class.getName());
+    private static Logger log = Logger.getLogger(ShapeValidityUtility.class.getName());
 
     private ShapeValidityUtility() {};
 

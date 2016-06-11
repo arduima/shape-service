@@ -106,7 +106,7 @@ public class RectangleTest {
         // Intersects, bottom left corner
         Shape rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
         Shape rect2 = new Rectangle(5.0, 5.0, 10.0, 10.0);
-        Boolean intersects = rect1.intersects(rect2);
+        boolean intersects = rect1.intersects(rect2);
         assertNotNull(intersects);
         assertTrue(intersects);
 
@@ -266,12 +266,19 @@ public class RectangleTest {
         assertTrue(intersects);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void intersectsNull() throws Exception {
+        // Null
+        Shape rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        boolean intersects = rect1.intersects(null);
+        assertNull(intersects);
+    }
     @Test
     public void intersectsFalse() throws Exception {
         // Enclosed
         Shape rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
         Shape rect2 = new Rectangle(2.0, 2.0, 5.0, 10.0);
-        Boolean intersects = rect1.intersects(rect2);
+        boolean intersects = rect1.intersects(rect2);
         assertNotNull(intersects);
         assertFalse(intersects);
 
@@ -281,11 +288,6 @@ public class RectangleTest {
         intersects = rect2.intersects(rect1);
         assertNotNull(intersects);
         assertFalse(intersects);
-
-        // Null
-        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
-        intersects = rect2.intersects(null);
-        assertNull(intersects);
 
         // Touching top, not intersects
         rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
@@ -320,7 +322,7 @@ public class RectangleTest {
     public void intersects1() throws Exception {
         // Intersects, bottom left corner
         Shape rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
-        Boolean intersects = rect1.intersects(5.0, 5.0, 10.0, 10.0);
+        boolean intersects = rect1.intersects(5.0, 5.0, 10.0, 10.0);
         assertNotNull(intersects);
         assertTrue(intersects);
     }
@@ -330,7 +332,7 @@ public class RectangleTest {
         // Completely enclosed
         Shape rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
         Shape rect2 = new Rectangle(2.0, 2.0, 5.0, 10.0);
-        Boolean contains = rect1.contains(rect2);
+        boolean contains = rect1.contains(rect2);
         assertNotNull(contains);
         assertTrue(contains);
         // Must check containment in both directions
@@ -366,17 +368,20 @@ public class RectangleTest {
         assertTrue(contains);
     }
 
-    @Test
-    public void containsFalse() throws Exception {
+    @Test(expected = IllegalArgumentException.class)
+    public void containsNull() throws Exception {
         // Null shape
         Shape rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
-        Boolean contains = rect1.contains(null);
+        boolean contains = rect1.contains(null);
         assertNull(contains);
+    }
 
+    @Test
+    public void containsFalse() throws Exception {
         // Left side
-        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        Shape rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
         Shape rect2 = new Rectangle(-5.0, 0.0, 10.0, 15.0);
-        contains = rect1.contains(rect2);
+        boolean contains = rect1.contains(rect2);
         assertNotNull(contains);
         assertFalse(contains);
 
@@ -412,7 +417,7 @@ public class RectangleTest {
     public void contains1() throws Exception {
         // Null shape
         Shape rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
-        Boolean contains = rect1.contains(2.0, 2.0, 5.0, 10.0);
+        boolean contains = rect1.contains(2.0, 2.0, 5.0, 10.0);
         assertNotNull(contains);
         assertTrue(contains);
     }
@@ -422,7 +427,7 @@ public class RectangleTest {
         // Adjacent, top to this.shape.bottom
         Shape rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
         Shape rect2 = new Rectangle(-5.0, -10.0, 20.0, 10.0);
-        Boolean adjacent = rect1.adjacent(rect2);
+        boolean adjacent = rect1.adjacent(rect2);
         assertNotNull(adjacent);
         assertTrue(adjacent);
         adjacent = rect2.adjacent(rect1);
@@ -585,7 +590,7 @@ public class RectangleTest {
         // Intersects, bottom left corner
         Shape rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
         Shape rect2 = new Rectangle(5.0, 5.0, 10.0, 10.0);
-        Boolean adjacent = rect1.adjacent(rect2);
+        boolean adjacent = rect1.adjacent(rect2);
         assertNotNull(adjacent);
         assertFalse(adjacent);
 
@@ -609,6 +614,59 @@ public class RectangleTest {
 
     @Test
     public void adjacent1() throws Exception {
+        // Adjacent, top to this.shape.bottom
+        Shape rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        Shape rect2 = new Rectangle(-5.0, -10.0, 20.0, 10.0);
+        boolean adjacent = rect1.adjacent(-5.0, -10.0, 20.0, 10.0);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+        adjacent = rect2.adjacent(0.0, 0.0, 10.0, 15.0);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+    }
 
+    @Test
+    public void distant() throws Exception {
+        // Adjacent, top to this.shape.bottom
+        Shape rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        Shape rect2 = new Rectangle(-10.0, -10.0, 5.0, 5.0);
+        boolean distant = rect1.distant(rect2);
+        assertNotNull(distant);
+        assertTrue(distant);
+
+    }
+
+    @Test
+    public void distantFalse() throws Exception {
+        // Adjacent, top to this.shape.bottom
+        Shape rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        Shape rect2 = new Rectangle(-5.0, -10.0, 20.0, 10.0);
+        boolean distant = rect1.distant(rect2);
+        assertNotNull(distant);
+        assertFalse(distant);
+        distant = rect2.distant(rect1);
+        assertNotNull(distant);
+        assertFalse(distant);
+
+        // Completely enclosed
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(2.0, 2.0, 5.0, 10.0);
+        distant = rect1.distant(rect2);
+        assertNotNull(distant);
+        assertFalse(distant);
+        distant = rect2.distant(rect1);
+        assertNotNull(distant);
+        assertFalse(distant);
+
+
+        // Intersects, bottom left corner
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(5.0, 5.0, 10.0, 10.0);
+        distant = rect1.distant(rect2);
+        assertNotNull(distant);
+        assertFalse(distant);
+        distant = rect2.distant(rect1);
+        assertNotNull(distant);
+        assertFalse(distant);
     }
 }

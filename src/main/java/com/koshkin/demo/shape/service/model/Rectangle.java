@@ -28,6 +28,17 @@ public class Rectangle implements Shape {
         this.height = height;
     }
 
+    public Rectangle(Point location, double width, double height) {
+        if(location == null) {
+            throw new IllegalArgumentException();
+        }
+        isValidException(location.x, location.y, width, height);
+        this.x = location.x;
+        this.y = location.y;
+        this.width = width;
+        this.height = height;
+    }
+
     @Override
     public Point location() {
         return new Point(x, y);
@@ -45,25 +56,23 @@ public class Rectangle implements Shape {
 
 
     @Override
-    public Boolean intersects(Shape shape) {
+    public boolean intersects(Shape shape) throws IllegalArgumentException {
         if(!isValid(shape)) {
-            return null;
+            throw new IllegalArgumentException();
         }
         return intersects(shape.location().x, shape.location().y, shape.width(), shape.height());
     }
 
     @Override
-    public Boolean intersects(double x, double y, double width, double height) {
+    public boolean intersects(double x, double y, double width, double height) throws IllegalArgumentException {
         if(!isValid(x, y, width, height)) {
-            return null;
+            throw new IllegalArgumentException();
         }
         // Can't be fully enclosed
         // Check if either of the shapes are enclosing the other
-        Boolean enclosed = this.contains(x, y, width, height);
-        Boolean enclosedReverse = new Rectangle(x, y, width, height).contains(this);
-        if(enclosed == null || enclosedReverse == null) {
-            return null;
-        } else if(enclosed || enclosedReverse) {
+        boolean enclosed = this.contains(x, y, width, height);
+        boolean enclosedReverse = new Rectangle(x, y, width, height).contains(this);
+        if(enclosed || enclosedReverse) {
             return Boolean.FALSE;
         }
 
@@ -74,18 +83,18 @@ public class Rectangle implements Shape {
     }
 
     @Override
-    public Boolean contains(Shape shape) {
+    public boolean contains(Shape shape) throws IllegalArgumentException {
         if(!isValid(shape)) {
-            return null;
+            throw new IllegalArgumentException();
         }
 
         return contains(shape.location().x, shape.location().y, shape.width(), shape.height());
     }
 
     @Override
-    public Boolean contains(double x, double y, double width, double height) {
+    public boolean contains(double x, double y, double width, double height) throws IllegalArgumentException {
         if(!isValid(x, y, width, height)) {
-            return null;
+            throw new IllegalArgumentException();
         }
 
         // Check for what it can't be
@@ -94,43 +103,60 @@ public class Rectangle implements Shape {
     }
 
     @Override
-    public Boolean adjacent(Shape shape) {
+    public boolean adjacent(Shape shape) throws IllegalArgumentException {
         if(!isValid(shape)) {
-            return null;
+            throw new IllegalArgumentException();
         }
 
         return adjacent(shape.location().x, shape.location().y, shape.width(), shape.height());
     }
 
     @Override
-    public Boolean adjacent(double x, double y, double width, double height) {
+    public boolean adjacent(double x, double y, double width, double height) throws IllegalArgumentException {
         if(!isValid(x, y, width, height)) {
-            return null;
+            throw new IllegalArgumentException();
         }
 
         // Can't be fully enclosed
         // Check if either of the shapes are enclosing the other
-        Boolean enclosed = this.contains(x, y, width, height);
-        Boolean enclosedReverse = new Rectangle(x, y, width, height).contains(this);
-        if(enclosed == null || enclosedReverse == null) {
-            return null;
-        } else if(enclosed || enclosedReverse) {
+        boolean enclosed = this.contains(x, y, width, height);
+        boolean enclosedReverse = new Rectangle(x, y, width, height).contains(this);
+        if(enclosed || enclosedReverse) {
             return Boolean.FALSE;
         }
 
         // Can't be fully enclosed
         // Check if either of the shapes are enclosing the other
-        Boolean intersects = this.intersects(x, y, width, height);
-        Boolean intersectsReverse = new Rectangle(x, y, width, height).intersects(this);
-        if(intersects == null || intersectsReverse == null) {
-            return null;
-        } else if(intersects || intersectsReverse) {
+        boolean intersects = this.intersects(x, y, width, height);
+        boolean intersectsReverse = new Rectangle(x, y, width, height).intersects(this);
+        if(intersects || intersectsReverse) {
             return Boolean.FALSE;
         }
 
         // Not enclosed or intersecting
         // Adjacent or not touching
         return !(x+width < this.x || this.x+this.width < x || y+height < this.y || this.y+this.height < y);
+    }
+
+    public boolean distant(Shape shape) throws IllegalArgumentException {
+        if(!isValid(shape)) {
+            throw new IllegalArgumentException();
+        }
+
+        return distant(shape.location().x, shape.location().y, shape.width(), shape.height());
+    }
+
+    public boolean distant(double x, double y, double width, double height) throws IllegalArgumentException {
+        if(!isValid(x, y, width, height)) {
+            throw new IllegalArgumentException();
+        }
+
+        boolean adjacent = this.adjacent(x, y, width, height);
+        boolean contains = this.contains(x, y, width, height);
+        boolean containsReverse = new Rectangle(x, y, width, height).contains(this);
+        boolean intersects = this.intersects(x, y, width, height);
+
+        return !(adjacent || contains || containsReverse || intersects);
     }
 
 }

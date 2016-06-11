@@ -10,11 +10,13 @@ public interface Shape {
     double width();
     double height();
 
-    Boolean intersects(Shape shape);
-    Boolean intersects(double x, double y, double width, double height);
-    Boolean contains(Shape shape);
-    Boolean contains(double x, double y, double width, double height);
-    Boolean adjacent(Shape shape);
-    Boolean adjacent(double x, double y, double width, double height);
+    boolean intersects(Shape shape) throws IllegalArgumentException;
+    boolean intersects(double x, double y, double width, double height) throws IllegalArgumentException;
+    boolean contains(Shape shape) throws IllegalArgumentException;
+    boolean contains(double x, double y, double width, double height) throws IllegalArgumentException;
+    boolean adjacent(Shape shape) throws IllegalArgumentException;
+    boolean adjacent(double x, double y, double width, double height) throws IllegalArgumentException;
+    boolean distant(Shape shape) throws IllegalArgumentException;
+    boolean distant(double x, double y, double width, double height) throws IllegalArgumentException;
 
 }
