@@ -5,6 +5,7 @@ package com.koshkin.demo.shape.service.model;
  */
 public interface Shape {
 
+    // Location of bottom left corner
     Point location();
     double width();
     double height();

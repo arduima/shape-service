@@ -5,13 +5,12 @@ import com.sun.javaws.exceptions.InvalidArgumentException;
 import java.util.logging.Logger;
 
 import static com.koshkin.demo.shape.service.exception.ExceptionMessages.*;
+import static com.koshkin.demo.shape.service.utility.ShapeValidityUtility.*;
 
 /**
  * Created by dkoshkin on 6/10/16.
  */
 public class Rectangle implements Shape {
-
-    static Logger log = Logger.getLogger(Rectangle.class.getName());
 
     private double x;
     private double y;
@@ -44,7 +43,6 @@ public class Rectangle implements Shape {
         return height;
     }
 
-    // TODO implement
 
     @Override
     public Boolean intersects(Shape shape) {
@@ -75,7 +73,13 @@ public class Rectangle implements Shape {
         if(!isValid(x, y, width, height)) {
             return null;
         }
-        return null;
+        boolean contains = true;
+        // Check for what it can't be
+        // All 4 corners must be inside the this.shape
+        if(x < this.x || x+width > this.x+this.width || y < this.y || y+height > this.y+this.height) {
+            contains =  false;
+        }
+        return contains;
     }
 
     @Override
@@ -94,36 +98,7 @@ public class Rectangle implements Shape {
         return null;
     }
 
-    private boolean isValid(Shape shape) {
-        if(shape == null) {
-            return false;
-        }
-
-        return isValid(shape.location().x, shape.location().y, shape.width(), shape.height());
-    }
-
-    private boolean isValid(double x, double y, double width, double height) {
-        boolean isValid = false;
-        try {
-            isValid = isValidException(x, y, width, height);
-        } catch (IllegalArgumentException ex) {
-            isValid = false;
-        }
-
-        return isValid;
-    }
-
-    private boolean isValidException(double x, double y, double width, double height) throws IllegalArgumentException {
-        if(width <= 0 || height <= 0) {
-            log.warning(INVALID_NEGATIVE_DIMENSIONS);
-            throw new IllegalArgumentException(INVALID_NEGATIVE_DIMENSIONS);
-        }
-        // Check for overflow
-        if(x + width <= 0 || y + height <= 0) {
-            log.warning(INVALID_SIZE_DIMENSIONS);
-            throw new IllegalArgumentException(INVALID_SIZE_DIMENSIONS);
-        }
-
-        return true;
-    }
 }
+
+
+
