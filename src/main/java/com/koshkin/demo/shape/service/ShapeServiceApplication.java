@@ -8,18 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Scanner;
 
 @SpringBootApplication
-public class ShapeServiceApplication implements CommandLineRunner {
-
-	public static final String DEMO_MODE = "demo";
-	public static final String CUSTOM_MODE = "custom";
+public class ShapeServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ShapeServiceApplication.class, args);
 	}
-
-	@Override
-	public void run(String... args) throws Exception {
-
-	}
-
+	
 }
