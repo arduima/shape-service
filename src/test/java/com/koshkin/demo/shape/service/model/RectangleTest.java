@@ -368,7 +368,6 @@ public class RectangleTest {
 
     @Test
     public void containsFalse() throws Exception {
-
         // Null shape
         Shape rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
         Boolean contains = rect1.contains(null);
@@ -420,7 +419,192 @@ public class RectangleTest {
 
     @Test
     public void adjacent() throws Exception {
+        // Adjacent, top to this.shape.bottom
+        Shape rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        Shape rect2 = new Rectangle(-5.0, -10.0, 20.0, 10.0);
+        Boolean adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+        adjacent = rect2.adjacent(rect1);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
 
+        // Adjacent, top to this.shape.bottom
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(-5.0, -10.0, 10.0, 10.0);
+        adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+        adjacent = rect2.adjacent(rect1);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+
+        // Adjacent, top to this.shape.bottom
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(5.0, -10.0, 10.0, 10.0);
+        adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+        adjacent = rect2.adjacent(rect1);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+
+        // Adjacent, top to this.shape.bottom
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(4.0, -10.0, 2.0, 10.0);
+        adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+        adjacent = rect2.adjacent(rect1);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+
+        // Adjacent, bottom to this.shape.top
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(-5.0, 15.0, 20.0, 10.0);
+        adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+        adjacent = rect2.adjacent(rect1);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+
+        // Adjacent, bottom to this.shape.top
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(-5.0, 15.0, 10.0, 10.0);
+        adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+        adjacent = rect2.adjacent(rect1);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+
+        // Adjacent, bottom to this.shape.top
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(4.0, 15.0, 2.0, 10.0);
+        adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+        adjacent = rect2.adjacent(rect1);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+
+        // Adjacent, bottom to this.shape.top
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(5.0, 15.0, 10.0, 10.0);
+        adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+        adjacent = rect2.adjacent(rect1);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+
+        // Adjacent, left to this.shape.right
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(10.0, -5.0, 20.0, 20.0);
+        adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+        adjacent = rect2.adjacent(rect1);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+
+        // Adjacent, left to this.shape.right
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(10.0, -5.0, 20.0, 10.0);
+        adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+        adjacent = rect2.adjacent(rect1);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+
+        // Adjacent, left to this.shape.right
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(10.0, 5.0, 20.0, 5.0);
+        adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+        adjacent = rect2.adjacent(rect1);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+
+        // Adjacent, left to this.shape.right
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(10.0, 5.0, 20.0, 15.0);
+        adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+        adjacent = rect2.adjacent(rect1);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+
+        // Adjacent, right to this.shape.left
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(-10.0, -5.0, 10.0, 20.0);
+        adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+        adjacent = rect2.adjacent(rect1);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+
+        // Adjacent, right to this.shape.left
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(-10.0, 5.0, 10.0, 20.0);
+        adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+        adjacent = rect2.adjacent(rect1);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+
+        // Adjacent, right to this.shape.left
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(-10.0, -5.0, 10.0, 10.0);
+        adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+        adjacent = rect2.adjacent(rect1);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+
+        // Adjacent, right to this.shape.left
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(-10.0, 5.0, 10.0, 5.0);
+        adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+        adjacent = rect2.adjacent(rect1);
+        assertNotNull(adjacent);
+        assertTrue(adjacent);
+    }
+
+    @Test
+    public void adjacentFalse() throws Exception {
+        // Intersects, bottom left corner
+        Shape rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        Shape rect2 = new Rectangle(5.0, 5.0, 10.0, 10.0);
+        Boolean adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertFalse(adjacent);
+
+        // Completely enclosed
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(2.0, 2.0, 5.0, 10.0);
+        adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertFalse(adjacent);
+        // Must check containment in both directions
+        adjacent = rect2.adjacent(rect1);
+        assertNotNull(adjacent);
+        assertFalse(adjacent);
+
+        rect1 = new Rectangle(0.0, 0.0, 10.0, 15.0);
+        rect2 = new Rectangle(-5.0, 0.0, 10.0, 15.0);
+        adjacent = rect1.adjacent(rect2);
+        assertNotNull(adjacent);
+        assertFalse(adjacent);
     }
 
     @Test

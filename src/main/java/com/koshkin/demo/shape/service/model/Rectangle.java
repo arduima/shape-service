@@ -108,7 +108,29 @@ public class Rectangle implements Shape {
             return null;
         }
 
-        return null;
+        // Can't be fully enclosed
+        // Check if either of the shapes are enclosing the other
+        Boolean enclosed = this.contains(x, y, width, height);
+        Boolean enclosedReverse = new Rectangle(x, y, width, height).contains(this);
+        if(enclosed == null || enclosedReverse == null) {
+            return null;
+        } else if(enclosed || enclosedReverse) {
+            return Boolean.FALSE;
+        }
+
+        // Can't be fully enclosed
+        // Check if either of the shapes are enclosing the other
+        Boolean intersects = this.intersects(x, y, width, height);
+        Boolean intersectsReverse = new Rectangle(x, y, width, height).intersects(this);
+        if(intersects == null || intersectsReverse == null) {
+            return null;
+        } else if(intersects || intersectsReverse) {
+            return Boolean.FALSE;
+        }
+
+        // Not enclosed or intersecting
+        // Adjacent or not touching
+        return !(x+width < this.x || this.x+this.width < x || y+height < this.y || this.y+this.height < y);
     }
 
 }
