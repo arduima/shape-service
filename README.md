@@ -1,7 +1,7 @@
 ### Shapes Demo
 ##### TL;DR
 * If you are a human - [Web App](http://rectangles.dimitrikoshkin.com/)
-* If you are a robot - [Service Testing](http://rectangles.dimitrikoshkin.com:8080/swagger-ui.html)
+* If you are a robot - [Service Testing](http://rectangles.dimitrikoshkin.com:8080/swagger-ui.html#/shape-controller)
 * Build and run locally - `./gradlew build && java- jar build/libs/shapeservice-0.0.1-SNAPSHOT.jar`
 
 ##### Technologies
