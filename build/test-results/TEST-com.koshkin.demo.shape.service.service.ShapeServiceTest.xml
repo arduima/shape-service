@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.koshkin.demo.shape.service.service.ShapeServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2016-06-12T15:25:11" hostname="Dimitris-MacBook-Pro-2.local" time="0.003">
+  <properties/>
+  <testcase name="getRelationshipIllegal" classname="com.koshkin.demo.shape.service.service.ShapeServiceTest" time="0.001"/>
+  <testcase name="getRelationshipNull" classname="com.koshkin.demo.shape.service.service.ShapeServiceTest" time="0.0"/>
+  <testcase name="getRelationship" classname="com.koshkin.demo.shape.service.service.ShapeServiceTest" time="0.0"/>
+  <system-out><![CDATA[2016-06-12 11:25:11.427  INFO 3687 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.koshkin.demo.shape.service.service.ShapeServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2016-06-12 11:25:11.430  INFO 3687 --- [    Test worker] o.s.t.c.web.WebTestContextBootstrapper   : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2016-06-12 11:25:11.431  INFO 3687 --- [    Test worker] o.s.t.c.web.WebTestContextBootstrapper   : Could not instantiate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+2016-06-12 11:25:11.432  INFO 3687 --- [    Test worker] o.s.t.c.web.WebTestContextBootstrapper   : Could not instantiate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+2016-06-12 11:25:11.432  INFO 3687 --- [    Test worker] o.s.t.c.web.WebTestContextBootstrapper   : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@246a0bf2, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@640322f8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2c4b881b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5ec7f48c]
+2016-06-12 11:25:11.436  WARN 3687 --- [    Test worker] c.k.d.s.s.utility.ShapeValidityUtility   : Shape width and height must be positive
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

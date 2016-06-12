@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.koshkin.demo.shape.service.model.RectangleTest" tests="26" skipped="0" failures="0" errors="0" timestamp="2016-06-12T15:25:11" hostname="Dimitris-MacBook-Pro-2.local" time="0.052">
+  <properties/>
+  <testcase name="containsNull" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.004"/>
+  <testcase name="containsFalse" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.0"/>
+  <testcase name="intersects1" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.0"/>
+  <testcase name="intersects" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.001"/>
+  <testcase name="height" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.0"/>
+  <testcase name="adjacent" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.001"/>
+  <testcase name="newInstanceNegativeException1" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.002"/>
+  <testcase name="newInstanceNegativeException2" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.001"/>
+  <testcase name="newInstanceNegativeException3" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.001"/>
+  <testcase name="newInstanceOverflowException1" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.002"/>
+  <testcase name="newInstanceOverflowException2" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.001"/>
+  <testcase name="newInstanceOverflowException3" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.001"/>
+  <testcase name="contains" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.001"/>
+  <testcase name="distantFalse" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.0"/>
+  <testcase name="contains1" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.0"/>
+  <testcase name="intersectsNull" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.001"/>
+  <testcase name="width" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.0"/>
+  <testcase name="newInstanceZeroException1" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.002"/>
+  <testcase name="newInstanceZeroException2" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.001"/>
+  <testcase name="newInstanceZeroException3" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.001"/>
+  <testcase name="adjacent1" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.001"/>
+  <testcase name="distant" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.001"/>
+  <testcase name="newInstance" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.0"/>
+  <testcase name="adjacentFalse" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.001"/>
+  <testcase name="location" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.002"/>
+  <testcase name="intersectsFalse" classname="com.koshkin.demo.shape.service.model.RectangleTest" time="0.0"/>
+  <system-out><![CDATA[11:25:06.932 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.koshkin.demo.shape.service.model.RectangleTest]
+11:25:06.937 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+11:25:06.943 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+11:25:06.956 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.koshkin.demo.shape.service.model.RectangleTest] from class [org.springframework.test.context.web.WebTestContextBootstrapper]
+11:25:06.984 [Test worker] DEBUG org.springframework.test.context.web.WebTestContextBootstrapper - Found explicit ContextLoader class [org.springframework.boot.test.SpringApplicationContextLoader] for context configuration attributes [ContextConfigurationAttributes@3713a10b declaringClass = 'com.koshkin.demo.shape.service.model.RectangleTest', classes = '{class com.koshkin.demo.shape.service.ShapeServiceApplication}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.boot.test.SpringApplicationContextLoader']
+11:25:06.993 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.koshkin.demo.shape.service.model.RectangleTest]: class path resource [com/koshkin/demo/shape/service/model/RectangleTest-context.xml] does not exist
+11:25:06.995 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.koshkin.demo.shape.service.model.RectangleTest]: class path resource [com/koshkin/demo/shape/service/model/RectangleTestContext.groovy] does not exist
+11:25:06.995 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.koshkin.demo.shape.service.model.RectangleTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+11:25:06.999 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.koshkin.demo.shape.service.model.RectangleTest]
+11:25:07.005 [Test worker] DEBUG org.springframework.test.context.web.WebTestContextBootstrapper - @TestExecutionListeners is not present for class [com.koshkin.demo.shape.service.model.RectangleTest]: using defaults.
+11:25:07.020 [Test worker] INFO org.springframework.test.context.web.WebTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+11:25:07.035 [Test worker] INFO org.springframework.test.context.web.WebTestContextBootstrapper - Could not instantiate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+11:25:07.036 [Test worker] INFO org.springframework.test.context.web.WebTestContextBootstrapper - Could not instantiate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+11:25:07.039 [Test worker] INFO org.springframework.test.context.web.WebTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3195eeb1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2f1e6c6d, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3af031eb, org.springframework.test.context.support.DirtiesContextTestExecutionListener@b464b18]
+11:25:07.042 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.koshkin.demo.shape.service.model.RectangleTest]
+11:25:07.043 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.koshkin.demo.shape.service.model.RectangleTest]
+11:25:07.045 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.koshkin.demo.shape.service.model.RectangleTest]
+11:25:07.045 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.koshkin.demo.shape.service.model.RectangleTest]
+11:25:07.051 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@33cde3f1 testClass = RectangleTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@67a27da7 testClass = RectangleTest, locations = '{}', classes = '{class com.koshkin.demo.shape.service.ShapeServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null].
+11:25:07.052 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.koshkin.demo.shape.service.model.RectangleTest]
+11:25:07.052 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.koshkin.demo.shape.service.model.RectangleTest]
+11:25:07.125 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+11:25:07.127 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+11:25:07.127 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+11:25:07.129 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [integrationTest] PropertySource with search precedence immediately lower than [systemEnvironment]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.3.5.RELEASE)
+
+2016-06-12 11:25:07.493  INFO 3687 --- [    Test worker] c.k.d.shape.service.model.RectangleTest  : Starting RectangleTest on Dimitris-MacBook-Pro-2.local with PID 3687 (/Users/dkoshkin/Documents/Development/Apprenda/shape-service/build/classes/test started by dkoshkin in /Users/dkoshkin/Documents/Development/Apprenda/shape-service)
+2016-06-12 11:25:07.495  INFO 3687 --- [    Test worker] c.k.d.shape.service.model.RectangleTest  : No active profile set, falling back to default profiles: default
+2016-06-12 11:25:07.611  INFO 3687 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@296b1bdf: startup date [Sun Jun 12 11:25:07 EDT 2016]; root of context hierarchy
+2016-06-12 11:25:10.269  INFO 3687 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/valid],methods=[POST]}" onto public org.springframework.http.ResponseEntity<com.koshkin.demo.shape.service.dto.response.Response> com.koshkin.demo.shape.service.controller.ShapeController.valid(com.koshkin.demo.shape.service.dto.request.ShapeValidRequest)
+2016-06-12 11:25:10.273  INFO 3687 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/relationship],methods=[POST]}" onto public org.springframework.http.ResponseEntity<com.koshkin.demo.shape.service.dto.response.Response> com.koshkin.demo.shape.service.controller.ShapeController.relationship(com.koshkin.demo.shape.service.dto.request.ShapeRelationshipRequest)
+2016-06-12 11:25:10.275  INFO 3687 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2016-06-12 11:25:10.282  INFO 3687 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2016-06-12 11:25:10.284  INFO 3687 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2016-06-12 11:25:10.285  INFO 3687 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2016-06-12 11:25:10.298  INFO 3687 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-06-12 11:25:10.298  INFO 3687 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-06-12 11:25:10.769  INFO 3687 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@296b1bdf: startup date [Sun Jun 12 11:25:07 EDT 2016]; root of context hierarchy
+2016-06-12 11:25:10.824  INFO 3687 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-06-12 11:25:10.824  INFO 3687 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-06-12 11:25:10.874  INFO 3687 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-06-12 11:25:11.023  INFO 3687 --- [    Test worker] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2016-06-12 11:25:11.023  INFO 3687 --- [    Test worker] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2016-06-12 11:25:11.048  INFO 3687 --- [    Test worker] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2016-06-12 11:25:11.059  INFO 3687 --- [    Test worker] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2016-06-12 11:25:11.306  INFO 3687 --- [    Test worker] c.k.d.shape.service.model.RectangleTest  : Started RectangleTest in 4.167 seconds (JVM running for 5.064)
+2016-06-12 11:25:11.335  WARN 3687 --- [    Test worker] c.k.d.s.s.utility.ShapeValidityUtility   : Shape width and height must be positive
+2016-06-12 11:25:11.337  WARN 3687 --- [    Test worker] c.k.d.s.s.utility.ShapeValidityUtility   : Shape width and height must be positive
+2016-06-12 11:25:11.338  WARN 3687 --- [    Test worker] c.k.d.s.s.utility.ShapeValidityUtility   : Shape width and height must be positive
+2016-06-12 11:25:11.341  WARN 3687 --- [    Test worker] c.k.d.s.s.utility.ShapeValidityUtility   : Size overflow, shape too large
+2016-06-12 11:25:11.343  WARN 3687 --- [    Test worker] c.k.d.s.s.utility.ShapeValidityUtility   : Size overflow, shape too large
+2016-06-12 11:25:11.344  WARN 3687 --- [    Test worker] c.k.d.s.s.utility.ShapeValidityUtility   : Size overflow, shape too large
+2016-06-12 11:25:11.358  WARN 3687 --- [    Test worker] c.k.d.s.s.utility.ShapeValidityUtility   : Shape width and height must be positive
+2016-06-12 11:25:11.360  WARN 3687 --- [    Test worker] c.k.d.s.s.utility.ShapeValidityUtility   : Shape width and height must be positive
+2016-06-12 11:25:11.362  WARN 3687 --- [    Test worker] c.k.d.s.s.utility.ShapeValidityUtility   : Shape width and height must be positive
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
