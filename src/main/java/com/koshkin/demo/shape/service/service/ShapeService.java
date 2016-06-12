@@ -1,17 +1,12 @@
 package com.koshkin.demo.shape.service.service;
 
-import com.koshkin.demo.shape.service.model.Point;
-import com.koshkin.demo.shape.service.model.Rectangle;
 import com.koshkin.demo.shape.service.model.Relationship;
 import com.koshkin.demo.shape.service.model.Shape;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.logging.Logger;
 
-import static com.koshkin.demo.shape.service.logging.LogMessages.*;
+import static com.koshkin.demo.shape.service.logging.LogMessages.UNKNOWN_RELATIONSHIP;
 
 /**
  * Created by dkoshkin on 6/11/16.

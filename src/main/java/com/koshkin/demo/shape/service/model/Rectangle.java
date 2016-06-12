@@ -1,11 +1,7 @@
 package com.koshkin.demo.shape.service.model;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
-
-import java.util.logging.Logger;
-
-import static com.koshkin.demo.shape.service.exception.ExceptionMessages.*;
-import static com.koshkin.demo.shape.service.utility.ShapeValidityUtility.*;
+import static com.koshkin.demo.shape.service.utility.ShapeValidityUtility.isValid;
+import static com.koshkin.demo.shape.service.utility.ShapeValidityUtility.isValidException;
 
 /**
  * Created by dkoshkin on 6/10/16.
