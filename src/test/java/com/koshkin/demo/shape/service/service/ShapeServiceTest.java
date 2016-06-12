@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.util.Set;
 
@@ -19,6 +20,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(ShapeServiceApplication.class)
+@WebAppConfiguration
 public class ShapeServiceTest {
 
     @Autowired
@@ -31,38 +33,30 @@ public class ShapeServiceTest {
         // Contains
         Shape shape1 = builder.buildShape(0.0, 0.0, 10.0, 10.0);
         Shape shape2 = builder.buildShape(2.0, 2.0, 6.0, 6.0);
-        Set<Relationship> relationshipSet = service.getRelationship(shape1, shape2);
-        assertNotNull(relationshipSet);
-        assertFalse(relationshipSet.isEmpty());
-        assertTrue(relationshipSet.size()==1);
-        assertTrue(relationshipSet.contains(Relationship.CONTAINS));
+        Relationship relationship = service.getRelationship(shape1, shape2);
+        assertNotNull(relationship);
+        assertTrue(relationship.compareTo(Relationship.CONTAINS) == 0);
 
         // Intersects
         shape1 = builder.buildShape(0.0, 0.0, 10.0, 10.0);
         shape2 = builder.buildShape(-2.0, -2.0, 6.0, 6.0);
-        relationshipSet = service.getRelationship(shape1, shape2);
-        assertNotNull(relationshipSet);
-        assertFalse(relationshipSet.isEmpty());
-        assertTrue(relationshipSet.size()==1);
-        assertTrue(relationshipSet.contains(Relationship.INTERCEPTS));
+        relationship = service.getRelationship(shape1, shape2);
+        assertNotNull(relationship);
+        assertTrue(relationship.compareTo(Relationship.INTERCEPTS) == 0);
 
         // Adjacent
         shape1 = builder.buildShape(0.0, 0.0, 10.0, 10.0);
         shape2 = builder.buildShape(-2.0, -2.0, 10.0, 2.0);
-        relationshipSet = service.getRelationship(shape1, shape2);
-        assertNotNull(relationshipSet);
-        assertFalse(relationshipSet.isEmpty());
-        assertTrue(relationshipSet.size()==1);
-        assertTrue(relationshipSet.contains(Relationship.ADJACENT));
+        relationship = service.getRelationship(shape1, shape2);
+        assertNotNull(relationship);
+        assertTrue(relationship.compareTo(Relationship.ADJACENT) == 0);
 
         // Distant
         shape1 = builder.buildShape(0.0, 0.0, 10.0, 10.0);
         shape2 = builder.buildShape(-10.0, -10.0, 5.0, 5.0);
-        relationshipSet = service.getRelationship(shape1, shape2);
-        assertNotNull(relationshipSet);
-        assertFalse(relationshipSet.isEmpty());
-        assertTrue(relationshipSet.size()==1);
-        assertTrue(relationshipSet.contains(Relationship.DISTANT));
+        relationship = service.getRelationship(shape1, shape2);
+        assertNotNull(relationship);
+        assertTrue(relationship.compareTo(Relationship.DISTANT) == 0);
     }
 
     @Test(expected = IllegalArgumentException.class)

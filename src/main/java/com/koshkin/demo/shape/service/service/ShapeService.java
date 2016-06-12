@@ -21,38 +21,36 @@ public class ShapeService {
 
     private static Logger log = Logger.getLogger(ShapeService.class.getName());
 
-    public Set<Relationship> getRelationship(Shape shape1, Shape shape2) throws IllegalArgumentException {
-        Set relationshipSet = new HashSet<>();
+    public Relationship getRelationship(Shape shape1, Shape shape2) throws IllegalArgumentException {
+        Relationship relationship = null;
 
         try {
-            // Check if either shape contains the other
             if (shape1.contains(shape2) || shape2.contains(shape1)) {
-                relationshipSet.add(Relationship.CONTAINS);
-            }
-            // Check if shapes intersect
-            if (shape1.intersects(shape2)) {
-                relationshipSet.add(Relationship.INTERCEPTS);
-            }
-            // Check if shapes are adjacent
-            if (shape1.adjacent(shape2)) {
-                relationshipSet.add(Relationship.ADJACENT);
+                // Check if either shape contains the other
+                relationship = Relationship.CONTAINS;
+            } else if (shape1.intersects(shape2)) {
+                // Check if shapes intersect
+                relationship = Relationship.INTERCEPTS;
+            } else if (shape1.adjacent(shape2)) {
+                // Check if shapes are adjacent
+                relationship = Relationship.ADJACENT;
             }
 
             // Check if distant only if no other conditions
-            if (relationshipSet.isEmpty()) {
+            if (relationship == null) {
                 if (shape1.distant(shape2)) {
-                    relationshipSet.add(Relationship.DISTANT);
+                    relationship = Relationship.DISTANT;
                 } else {
                     // Program error, should not happen
                     log.warning(UNKNOWN_RELATIONSHIP);
-                    relationshipSet.add(Relationship.UNDEFINED);
+                    relationship = Relationship.UNDEFINED;
                 }
             }
         } catch (Exception ex) {
             throw new IllegalArgumentException();
         }
 
-        return relationshipSet;
+        return relationship;
     }
 
 }
