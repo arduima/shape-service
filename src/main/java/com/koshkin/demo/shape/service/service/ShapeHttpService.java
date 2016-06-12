@@ -1,16 +1,17 @@
 package com.koshkin.demo.shape.service.service;
 
 import com.koshkin.demo.shape.service.dto.request.RectangleDto;
-import com.koshkin.demo.shape.service.dto.request.ShapeRequest;
+import com.koshkin.demo.shape.service.dto.request.ShapeRelationshipRequest;
+import com.koshkin.demo.shape.service.dto.request.ShapeValidRequest;
 import com.koshkin.demo.shape.service.dto.response.ResponseData;
 import com.koshkin.demo.shape.service.dto.response.ShapeResponseData;
+import com.koshkin.demo.shape.service.dto.response.ValidResponseData;
 import com.koshkin.demo.shape.service.exception.UnknownStateException;
-import com.koshkin.demo.shape.service.model.Rectangle;
 import com.koshkin.demo.shape.service.model.Relationship;
 import com.koshkin.demo.shape.service.model.Shape;
+import com.koshkin.demo.shape.service.utility.ShapeValidityUtility;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.logging.Logger;
@@ -32,13 +33,10 @@ public class ShapeHttpService {
     @Autowired
     private ShapeService shapeService;
 
-    public ResponseData getResponseData(ShapeRequest request) throws IllegalArgumentException, UnknownStateException {
-        // Request requires exactly 2 rectangles
-        // TODO support multiple shapes
-        if(request == null || CollectionUtils.size(request.getRectangles()) != 2) {
-            log.warning(INVALID_REQUEST_LENGTH);
-            throw new IllegalArgumentException();
-        }
+    public ResponseData getRelationshipResponseData(ShapeRelationshipRequest request) throws IllegalArgumentException, UnknownStateException {
+
+        // Will throw exception
+        isValid(request);
 
         Shape shape1 = buildShape(request.getRectangles().get(0));
         Shape shape2 = buildShape(request.getRectangles().get(1));
@@ -55,7 +53,43 @@ public class ShapeHttpService {
         return responseData;
     }
 
-    private Shape buildShape(RectangleDto rectangleDto) {
+    public ResponseData getValidResponseData(ShapeValidRequest request) throws IllegalArgumentException {
+        // Will throw exception
+        ValidResponseData responseData = new ValidResponseData();
+        try {
+            isValid(request);
+            Shape shape1 = buildShape(request.getRectangle());
+
+            responseData.setValid(ShapeValidityUtility.isValid(shape1));
+        } catch (IllegalArgumentException ex) {
+            responseData.setValid(Boolean.FALSE);
+        }
+
+        return responseData;
+    }
+
+    private Shape buildShape(RectangleDto rectangleDto) throws IllegalArgumentException {
+        if(rectangleDto == null) {
+            throw new IllegalArgumentException();
+        }
         return builderService.buildShape(rectangleDto.getX(), rectangleDto.getY(), rectangleDto.getWidth(), rectangleDto.getHeight());
+    }
+
+    private void isValid(ShapeRelationshipRequest request) {
+        // Request requires exactly 2 rectangles
+        // TODO support multiple shapes
+        if(request == null || CollectionUtils.size(request.getRectangles()) != 2) {
+            log.warning(INVALID_REQUEST_LENGTH);
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void isValid(ShapeValidRequest request) {
+        // Request cannot be null
+        // TODO support multiple shapes
+        if(request == null) {
+            log.warning(INVALID_REQUEST_LENGTH);
+            throw new IllegalArgumentException();
+        }
     }
 }

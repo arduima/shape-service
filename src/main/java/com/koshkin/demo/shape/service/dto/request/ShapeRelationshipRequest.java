@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by dkoshkin on 6/11/16.
  */
-public class ShapeRequest {
+public class ShapeRelationshipRequest {
 
     private List<RectangleDto> rectangles;
 
